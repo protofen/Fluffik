@@ -11,7 +11,7 @@ bot = commands.Bot(command_prefix=PREFIX, intents=intents)
 
 @bot.command(name="хелп")
 async def helper(ctx, member: discord.Member = None):
-    await ctx.send(f"Префикс: ф!\nКоманды: обнять, пат, лизь, кусь, буп")
+    await ctx.send(f"Префикс: ф!\nКоманды: обнять, пат, лизь, кусь, буп, поцеловать")
 
 @bot.command(name="обнять")
 async def hug(ctx, member: discord.Member = None):
@@ -77,6 +77,19 @@ async def pat(ctx, member: discord.Member = None):
         await ctx.send(f"{ctx.author.mention} бупнул меня! Спасибо, взаимно! :3")
         return
     await ctx.send(f"{ctx.author.mention} бупнул {member.mention} :3")
+
+@bot.command(name="поцеловать")
+async def hug(ctx, member: discord.Member = None):
+    if member is None:
+        await ctx.send(f"{ctx.author.mention}, укажите кого поцеловать! Пример: `{PREFIX}поцеловать @user`")
+        return
+    if member == ctx.author:
+        await ctx.send(f"{ctx.author.mention} поцеловал сам себя!")
+        return
+    if member == bot.user:
+        await ctx.send(f"{ctx.author.mention} поцеловал меня! Спасибо, взаимно!")
+        return
+    await ctx.send(f"{ctx.author.mention} поцеловал {member.mention} :3")
 
 def run_bot():
     try:
