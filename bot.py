@@ -78,5 +78,10 @@ async def pat(ctx, member: discord.Member = None):
         return
     await ctx.send(f"{ctx.author.mention} бупнул {member.mention} :3")
 
-if __name__ == "__main__":
-    bot.run(TOKEN)
+def run_bot():
+    try:
+        bot.run(TOKEN)
+    except:
+        run_bot()
+
+run_bot()
