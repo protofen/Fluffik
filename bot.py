@@ -21,6 +21,8 @@ hug_item = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg']
 kiss_item = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg']
 lick_item = ['1.jpg']
 pat_item = ['1.jpg']
+bite_item = ['1.jpg']
+boop_item = ['1.jpg']
 
 @bot.command(name="хелп")
 async def helper(ctx, member: discord.Member = None):
@@ -70,6 +72,7 @@ async def pat(ctx, member: discord.Member = None):
 
 @bot.command(name="кусь")
 async def pat(ctx, member: discord.Member = None):
+    bite_sel = bite_url + random.choice(bite_item)
     if member is None:
         await ctx.send(f"{ctx.author.mention}, укажите кого кусьнуть! Пример: `{PREFIX}кусь @user`")
         return
@@ -79,10 +82,11 @@ async def pat(ctx, member: discord.Member = None):
     if member == bot.user:
         await ctx.send(f"{ctx.author.mention} кусьнул меня! ><")
         return
-    await ctx.send(f"{ctx.author.mention} кусьнул {member.mention} >:3")
+    await ctx.send(f"{ctx.author.mention} кусьнул {member.mention} >:3\n{bite_sel}")
 
 @bot.command(name="буп")
 async def pat(ctx, member: discord.Member = None):
+    boop_sel = boop_url + random.choice(boop_item)
     if member is None:
         await ctx.send(f"{ctx.author.mention}, укажите кого бупнуть! Пример: `{PREFIX}буп @user`")
         return
@@ -92,7 +96,7 @@ async def pat(ctx, member: discord.Member = None):
     if member == bot.user:
         await ctx.send(f"{ctx.author.mention} бупнул меня! Спасибо, взаимно! :3")
         return
-    await ctx.send(f"{ctx.author.mention} бупнул {member.mention} :3")
+    await ctx.send(f"{ctx.author.mention} бупнул {member.mention} :3\n{boop_sel}")
 
 @bot.command(name="поцеловать")
 async def hug(ctx, member: discord.Member = None):
